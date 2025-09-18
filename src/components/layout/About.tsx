@@ -24,21 +24,29 @@ const About = async () => {
   const aboutText = aboutData?.fields.text as string || 'Dynamic content coming soon...';
 
   return (
-    <section id="about" className="py-16 animate-fadeIn">
+    <section id="about" className="py-24 sm:py-32 animate-fadeIn" style={{ animationDelay: '0.2s' }}>
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <Image
-            src={avatarUrl}
-            alt="Avatar"
-            width={128}
-            height={128}
-            className="rounded-full mx-auto mb-6 border-4 border-muted"
-          />
-          <h2 className="text-3xl font-bold mb-4">About Me</h2>
-          <HighlightedText text={aboutText} />
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+          <div className="lg:col-span-1 flex justify-center">
+            <Image
+              src={avatarUrl}
+              alt="Avatar"
+              width={200}
+              height={200}
+              className="rounded-full shadow-lg border-4 border-card"
+            />
+          </div>
+          <div className="lg:col-span-2">
+            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl mb-6">About Me</h2>
+            <div className="text-lg text-muted-foreground space-y-4">
+              <HighlightedText text={aboutText} />
+            </div>
+          </div>
         </div>
 
-        <ProfessionalSkills skills={skillsData} />
+        <div className="mt-24">
+          <ProfessionalSkills skills={skillsData} />
+        </div>
       </div>
     </section>
   );
