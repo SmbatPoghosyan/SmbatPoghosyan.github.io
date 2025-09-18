@@ -1,86 +1,712 @@
 {
-  "workHistory": [
+  "version": 1,
+  "contentTypes": [],
+  "assets": [],
+  "entries": [
     {
-      "company": "ZEMA",
-      "location": "Yerevan, Armenia",
-      "period": "2023-05 - current",
-      "title": "LEAD SOFTWARE ENGINEER",
-      "description": "Leading a team of 3 developers, 2 QA engineers, and 1 UI developer. Working on an insurance project for a large client in the USA. Making architectural decisions on implementing new features, database design, and technology selection."
+      "sys": {
+        "id": "about-me-primary",
+        "type": "Entry",
+        "version": 1,
+        "createdAt": "2025-09-18T00:00:00Z",
+        "updatedAt": "2025-09-18T00:00:00Z",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "aboutMe"
+          }
+        }
+      },
+      "fields": {
+        "text": {
+          "en-US": "As a Full Stack Software Engineer, I possess a strong understanding of both front-end and back-end development. I am well-versed in *Web Application Architecture* and have had the privilege of working with **highly successful development teams**."
+        },
+        "avatarUrl": {
+          "en-US": "https://i.pravatar.cc/150?u=a042581f4e29026024d"
+        }
+      }
     },
     {
-      "company": "DataArt",
-      "location": "Yerevan, Armenia",
-      "period": "2022-01 - 2023-04",
-      "title": "SOFTWARE ENGINEER",
-      "description": "Contributed to the development of a media platform, using Node.js, React, Express, PostgreSql to deliver an intuitive and user-friendly experience for users to manage, share, and interact with media content."
+      "sys": {
+        "id": "contact-primary",
+        "type": "Entry",
+        "version": 1,
+        "createdAt": "2025-09-18T00:00:00Z",
+        "updatedAt": "2025-09-18T00:00:00Z",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "contact"
+          }
+        }
+      },
+      "fields": {
+        "email": {
+          "en-US": "sampogosyan1995@gmail.com"
+        },
+        "phone": {
+          "en-US": "+374-44-821-484"
+        }
+      }
     },
     {
-      "company": "EPAM",
-      "location": "Yerevan, Armenia",
-      "period": "2021-04 - 2022-01",
-      "title": "SOFTWARE ENGINEER",
-      "description": "Developed and maintained robust, scalable and secure full-stack applications using a combination of technologies such as Node.js, React, Express, Nest, MongoDB, and RESTful services, delivering high-quality solutions that meet the needs of clients. Implemented microservices architecture to improve the efficiency and scalability of applications, ensuring a seamless user experience for end-users. Worked closely with cross-functional teams, including designers and project managers, to analyze requirements, design solutions, and deploy applications to production, continuously optimizing and improving the overall performance and functionality of the applications."
+      "sys": {
+        "id": "workhistory-zema",
+        "type": "Entry",
+        "version": 1,
+        "createdAt": "2025-09-18T00:00:00Z",
+        "updatedAt": "2025-09-18T00:00:00Z",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "workHistory"
+          }
+        }
+      },
+      "fields": {
+        "company": {
+          "en-US": "ZEMA"
+        },
+        "location": {
+          "en-US": "Yerevan, Armenia"
+        },
+        "period": {
+          "en-US": "2023-05 - current"
+        },
+        "title": {
+          "en-US": "LEAD SOFTWARE ENGINEER"
+        },
+        "description": {
+          "en-US": "Leading a team of 3 developers, 2 QA engineers, and 1 UI developer. Working on an insurance project for a large client in the USA. Making architectural decisions on implementing new features, database design, and technology selection."
+        },
+        "startDate": {
+          "en-US": "2023-05-01"
+        }
+      }
     },
     {
-      "company": "NOORLOGIC",
-      "location": "Yerevan, Armenia",
-      "period": "2020-10 - 2021-04",
-      "title": "Javascript developer",
-      "description": "Designed and implemented efficient APIs for various applications, leveraging technologies such as React, Node.js, and AWS, to meet the needs of clients and enhance the overall functionality of the applications. Utilized PostgreSql to develop and maintain databases, while also contributing to the creation of visually appealing and user-friendly designs, improving the overall user experience."
+      "sys": {
+        "id": "workhistory-dataart",
+        "type": "Entry",
+        "version": 1,
+        "createdAt": "2025-09-18T00:00:00Z",
+        "updatedAt": "2025-09-18T00:00:00Z",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "workHistory"
+          }
+        }
+      },
+      "fields": {
+        "company": {
+          "en-US": "DataArt"
+        },
+        "location": {
+          "en-US": "Yerevan, Armenia"
+        },
+        "period": {
+          "en-US": "2022-01 - 2023-04"
+        },
+        "title": {
+          "en-US": "SOFTWARE ENGINEER"
+        },
+        "description": {
+          "en-US": "Contributed to the development of a media platform, using Node.js, React, Express, PostgreSql to deliver an intuitive and user-friendly experience for users to manage, share, and interact with media content."
+        },
+        "startDate": {
+          "en-US": "2022-01-01"
+        }
+      }
     },
     {
-      "company": "SunnySchool",
-      "location": "Yerevan, Armenia",
-      "period": "2020-09 - 2021-02",
-      "title": "Javascript Tutor",
-      "description": "Guided and instructed students on JavaScript programming concepts and techniques, utilizing hands-on lessons and real-world examples to enhance their understanding and skills in the language. Assessed students' progress and provided personalized feedback and support, encouraging them to apply their newfound knowledge in practical projects, and fostering a collaborative and engaged learning environment."
+      "sys": {
+        "id": "workhistory-epam",
+        "type": "Entry",
+        "version": 1,
+        "createdAt": "2025-09-18T00:00:00Z",
+        "updatedAt": "2025-09-18T00:00:00Z",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "workHistory"
+          }
+        }
+      },
+      "fields": {
+        "company": {
+          "en-US": "EPAM"
+        },
+        "location": {
+          "en-US": "Yerevan, Armenia"
+        },
+        "period": {
+          "en-US": "2021-04 - 2022-01"
+        },
+        "title": {
+          "en-US": "SOFTWARE ENGINEER"
+        },
+        "description": {
+          "en-US": "Developed and maintained robust, scalable and secure full-stack applications using a combination of technologies such as Node.js, React, Express, Nest, MongoDB, and RESTful services, delivering high-quality solutions that meet the needs of clients. Implemented microservices architecture to improve the efficiency and scalability of applications, ensuring a seamless user experience for end-users. Worked closely with cross-functional teams, including designers and project managers, to analyze requirements, design solutions, and deploy applications to production, continuously optimizing and improving the overall performance and functionality of the applications."
+        },
+        "startDate": {
+          "en-US": "2021-04-01"
+        }
+      }
     },
     {
-      "company": "Polymorphic",
-      "location": "Yerevan, Armenia",
-      "period": "2019-02 - 2020-10",
-      "title": "Javascript developer",
-      "description": "Successfully executed full redesigns of websites with a focus on enhancing navigation and visual elements. Demonstrated expertise in transforming concepts into robust design mockups and prototypes that bolster design, improve user experience, and streamline site interactions. Utilized extensive programming skills in JavaScript (ReactJs, Angular, Node.js), HTML, CSS (SASS, LESS), PHP (Laravel) and additional libraries as necessary."
+      "sys": {
+        "id": "workhistory-noorlogic",
+        "type": "Entry",
+        "version": 1,
+        "createdAt": "2025-09-18T00:00:00Z",
+        "updatedAt": "2025-09-18T00:00:00Z",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "workHistory"
+          }
+        }
+      },
+      "fields": {
+        "company": {
+          "en-US": "NOORLOGIC"
+        },
+        "location": {
+          "en-US": "Yerevan, Armenia"
+        },
+        "period": {
+          "en-US": "2020-10 - 2021-04"
+        },
+        "title": {
+          "en-US": "Javascript developer"
+        },
+        "description": {
+          "en-US": "Designed and implemented efficient APIs for various applications, leveraging technologies such as React, Node.js, and AWS, to meet the needs of clients and enhance the overall functionality of the applications. Utilized PostgreSql to develop and maintain databases, while also contributing to the creation of visually appealing and user-friendly designs, improving the overall user experience."
+        },
+        "startDate": {
+          "en-US": "2020-10-01"
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "workhistory-sunnyschool",
+        "type": "Entry",
+        "version": 1,
+        "createdAt": "2025-09-18T00:00:00Z",
+        "updatedAt": "2025-09-18T00:00:00Z",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "workHistory"
+          }
+        }
+      },
+      "fields": {
+        "company": {
+          "en-US": "SunnySchool"
+        },
+        "location": {
+          "en-US": "Yerevan, Armenia"
+        },
+        "period": {
+          "en-US": "2020-09 - 2021-02"
+        },
+        "title": {
+          "en-US": "Javascript Tutor"
+        },
+        "description": {
+          "en-US": "Guided and instructed students on JavaScript programming concepts and techniques, utilizing hands-on lessons and real-world examples to enhance their understanding and skills in the language. Assessed students' progress and provided personalized feedback and support, encouraging them to apply their newfound knowledge in practical projects, and fostering a collaborative and engaged learning environment."
+        },
+        "startDate": {
+          "en-US": "2020-09-01"
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "workhistory-polymorphic",
+        "type": "Entry",
+        "version": 1,
+        "createdAt": "2025-09-18T00:00:00Z",
+        "updatedAt": "2025-09-18T00:00:00Z",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "workHistory"
+          }
+        }
+      },
+      "fields": {
+        "company": {
+          "en-US": "Polymorphic"
+        },
+        "location": {
+          "en-US": "Yerevan, Armenia"
+        },
+        "period": {
+          "en-US": "2019-02 - 2020-10"
+        },
+        "title": {
+          "en-US": "Javascript developer"
+        },
+        "description": {
+          "en-US": "Successfully executed full redesigns of websites with a focus on enhancing navigation and visual elements. Demonstrated expertise in transforming concepts into robust design mockups and prototypes that bolster design, improve user experience, and streamline site interactions. Utilized extensive programming skills in JavaScript (ReactJs, Angular, Node.js), HTML, CSS (SASS, LESS), PHP (Laravel) and additional libraries as necessary."
+        },
+        "startDate": {
+          "en-US": "2019-02-01"
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "education-rau-masters",
+        "type": "Entry",
+        "version": 1,
+        "createdAt": "2025-09-18T00:00:00Z",
+        "updatedAt": "2025-09-18T00:00:00Z",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "education"
+          }
+        }
+      },
+      "fields": {
+        "institution": {
+          "en-US": "Rau (Russian-armenian university)"
+        },
+        "degree": {
+          "en-US": "Masters Degree in Infocommunication technologies"
+        },
+        "period": {
+          "en-US": "2018 - 2020"
+        },
+        "startDate": {
+          "en-US": "2018-01-01"
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "education-rau-bachelors",
+        "type": "Entry",
+        "version": 1,
+        "createdAt": "2025-09-18T00:00:00Z",
+        "updatedAt": "2025-09-18T00:00:00Z",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "education"
+          }
+        }
+      },
+      "fields": {
+        "institution": {
+          "en-US": "RAU (RUSSIAN-ARMENIAN UNIVERSITY)"
+        },
+        "degree": {
+          "en-US": "Bachelor's Degree in Infocommunication technologies"
+        },
+        "period": {
+          "en-US": "2012 - 2016"
+        },
+        "startDate": {
+          "en-US": "2012-01-01"
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "education-aca",
+        "type": "Entry",
+        "version": 1,
+        "createdAt": "2025-09-18T00:00:00Z",
+        "updatedAt": "2025-09-18T00:00:00Z",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "education"
+          }
+        }
+      },
+      "fields": {
+        "institution": {
+          "en-US": "Aca (Armenian code academy)"
+        },
+        "degree": {
+          "en-US": "JavaScript (ReactJS)"
+        },
+        "period": {
+          "en-US": "october 2018 - march 2019"
+        },
+        "startDate": {
+          "en-US": "2018-10-01"
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "skill-javascript-es6",
+        "type": "Entry",
+        "version": 1,
+        "createdAt": "2025-09-18T00:00:00Z",
+        "updatedAt": "2025-09-18T00:00:00Z",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "professionalSkill"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "JavaScript (ES6+)"
+        },
+        "category": {
+          "en-US": "Frontend"
+        },
+        "strength": {
+          "en-US": 5
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "skill-typescript",
+        "type": "Entry",
+        "version": 1,
+        "createdAt": "2025-09-18T00:00:00Z",
+        "updatedAt": "2025-09-18T00:00:00Z",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "professionalSkill"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "TypeScript"
+        },
+        "category": {
+          "en-US": "Frontend"
+        },
+        "strength": {
+          "en-US": 5
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "skill-react",
+        "type": "Entry",
+        "version": 1,
+        "createdAt": "2025-09-18T00:00:00Z",
+        "updatedAt": "2025-09-18T00:00:00Z",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "professionalSkill"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "React (Next.js)"
+        },
+        "category": {
+          "en-US": "Frontend"
+        },
+        "strength": {
+          "en-US": 5
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "skill-angular",
+        "type": "Entry",
+        "version": 1,
+        "createdAt": "2025-09-18T00:00:00Z",
+        "updatedAt": "2025-09-18T00:00:00Z",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "professionalSkill"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Angular 2+"
+        },
+        "category": {
+          "en-US": "Frontend"
+        },
+        "strength": {
+          "en-US": 4
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "skill-html-css",
+        "type": "Entry",
+        "version": 1,
+        "createdAt": "2025-09-18T00:00:00Z",
+        "updatedAt": "2025-09-18T00:00:00Z",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "professionalSkill"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "HTML5 & CSS3 (SASS, LESS)"
+        },
+        "category": {
+          "en-US": "Frontend"
+        },
+        "strength": {
+          "en-US": 5
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "skill-nodejs",
+        "type": "Entry",
+        "version": 1,
+        "createdAt": "2025-09-18T00:00:00Z",
+        "updatedAt": "2025-09-18T00:00:00Z",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "professionalSkill"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Node.js (Express, Nest)"
+        },
+        "category": {
+          "en-US": "Backend"
+        },
+        "strength": {
+          "en-US": 5
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "skill-sql",
+        "type": "Entry",
+        "version": 1,
+        "createdAt": "2025-09-18T00:00:00Z",
+        "updatedAt": "2025-09-18T00:00:00Z",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "professionalSkill"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "SQL (MySQL, PostgreSQL)"
+        },
+        "category": {
+          "en-US": "Backend"
+        },
+        "strength": {
+          "en-US": 4
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "skill-nosql",
+        "type": "Entry",
+        "version": 1,
+        "createdAt": "2025-09-18T00:00:00Z",
+        "updatedAt": "2025-09-18T00:00:00Z",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "professionalSkill"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "NoSQL (MongoDB, Redis)"
+        },
+        "category": {
+          "en-US": "Backend"
+        },
+        "strength": {
+          "en-US": 4
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "skill-rest-graphql",
+        "type": "Entry",
+        "version": 1,
+        "createdAt": "2025-09-18T00:00:00Z",
+        "updatedAt": "2025-09-18T00:00:00Z",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "professionalSkill"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "RESTful & GraphQL APIs"
+        },
+        "category": {
+          "en-US": "Backend"
+        },
+        "strength": {
+          "en-US": 5
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "skill-git",
+        "type": "Entry",
+        "version": 1,
+        "createdAt": "2025-09-18T00:00:00Z",
+        "updatedAt": "2025-09-18T00:00:00Z",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "professionalSkill"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Git & GitHub/Bitbucket"
+        },
+        "category": {
+          "en-US": "Tools"
+        },
+        "strength": {
+          "en-US": 5
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "skill-aws",
+        "type": "Entry",
+        "version": 1,
+        "createdAt": "2025-09-18T00:00:00Z",
+        "updatedAt": "2025-09-18T00:00:00Z",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "professionalSkill"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "AWS (S3, EC2, Lambda, RDS)"
+        },
+        "category": {
+          "en-US": "Cloud"
+        },
+        "strength": {
+          "en-US": 3
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "skill-firebase",
+        "type": "Entry",
+        "version": 1,
+        "createdAt": "2025-09-18T00:00:00Z",
+        "updatedAt": "2025-09-18T00:00:00Z",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "professionalSkill"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Firebase"
+        },
+        "category": {
+          "en-US": "Cloud"
+        },
+        "strength": {
+          "en-US": 3
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "skill-jira",
+        "type": "Entry",
+        "version": 1,
+        "createdAt": "2025-09-18T00:00:00Z",
+        "updatedAt": "2025-09-18T00:00:00Z",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "professionalSkill"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Jira, Trello, Azure Boards"
+        },
+        "category": {
+          "en-US": "Tools"
+        },
+        "strength": {
+          "en-US": 5
+        }
+      }
     }
-  ],
-  "professionalSkills": [
-    { "name": "JavaScript (ES6+)", "category": "Frontend", "strength": 5 },
-    { "name": "TypeScript", "category": "Frontend", "strength": 5 },
-    { "name": "React (Next.js)", "category": "Frontend", "strength": 5 },
-    { "name": "Angular 2+", "category": "Frontend", "strength": 4 },
-    { "name": "HTML5 & CSS3 (SASS, LESS)", "category": "Frontend", "strength": 5 },
-    { "name": "Node.js (Express, Nest)", "category": "Backend", "strength": 5 },
-    { "name": "SQL (MySQL, PostgreSQL)", "category": "Backend", "strength": 4 },
-    { "name": "NoSQL (MongoDB, Redis)", "category": "Backend", "strength": 4 },
-    { "name": "RESTful & GraphQL APIs", "category": "Backend", "strength": 5 },
-    { "name": "Git & GitHub/Bitbucket", "category": "Tools", "strength": 5 },
-    { "name": "AWS (S3, EC2, Lambda, RDS)", "category": "Cloud", "strength": 3 },
-    { "name": "Firebase", "category": "Cloud", "strength": 3 },
-    { "name": "Jira, Trello, Azure Boards", "category": "Tools", "strength": 5 }
-  ],
-  "aboutMe": {
-    "text": "As a Full Stack Software Engineer, I possess a strong understanding of both front-end and back-end development. I am well-versed in *Web Application Architecture* and have had the privilege of working with **highly successful development teams**.",
-    "avatarUrl": "https://i.pravatar.cc/150?u=a042581f4e29026024d"
-  },
-  "education": [
-    {
-      "institution": "Rau (Russian-armenian university)",
-      "degree": "Masters Degree in Infocommunication technologies",
-      "period": "2018 - 2020"
-    },
-    {
-      "institution": "RAU (RUSSIAN-ARMENIAN UNIVERSITY)",
-      "degree": "Bachelor's Degree in Infocommunication technologies",
-      "period": "2012 - 2016"
-    },
-    {
-      "institution": "Aca (Armenian code academy)",
-      "degree": "JavaScript (ReactJS)",
-      "period": "october 2018 - march 2019"
-    }
-  ],
-  "contact": {
-    "email": "sampogosyan1995@gmail.com",
-    "phone": "+374-44-821-484"
-  }
+  ]
 }

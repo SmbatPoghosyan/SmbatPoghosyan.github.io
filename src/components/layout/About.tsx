@@ -9,6 +9,7 @@ interface AboutMeSkeleton extends EntrySkeletonType {
   fields: {
     text: EntryFieldTypes.Text;
     avatar?: EntryFieldTypes.AssetLink;
+    avatarUrl?: EntryFieldTypes.Text;
   };
   contentTypeId: 'aboutMe';
 }
@@ -72,7 +73,18 @@ const About = async () => {
     return acc;
   }, {} as Record<string, Skill[]>);
 
-  const avatarUrl = aboutData?.fields.avatar ? `https:${aboutData.fields.avatar.fields.file.url}` : '/default-avatar.svg';
+  const avatarUrl = (() => {
+    const asset = aboutData?.fields.avatar as { fields?: { file?: { url?: string } } } | undefined;
+    const fileUrl = asset?.fields?.file?.url;
+    if (fileUrl) {
+      return fileUrl.startsWith('http') ? fileUrl : `https:${fileUrl}`;
+    }
+    const avatarText = aboutData?.fields.avatarUrl as string | undefined;
+    if (avatarText) {
+      return avatarText.startsWith('http') ? avatarText : `https://${avatarText}`;
+    }
+    return '/default-avatar.svg';
+  })();
   const aboutText = aboutData?.fields.text as string || 'Dynamic content coming soon...';
 
   return (
