@@ -7,12 +7,11 @@ const Footer = () => {
         <p className="text-balance text-center text-sm leading-loose text-muted-foreground md:text-left">
           © {new Date().getFullYear()} Smbat Poghosyan. All rights reserved.
         </p>
-        {/* TODO: Add social links */}
         <div className="flex items-center gap-4">
-          <a href="#" target="_blank" rel="noreferrer" className="font-medium underline underline-offset-4">
+          <a href="https://github.com/SmbatPoghosyan" target="_blank" rel="noreferrer" className="font-medium underline underline-offset-4">
             GitHub
           </a>
-          <a href="#" target="_blank" rel="noreferrer" className="font-medium underline underline-offset-4">
+          <a href="https://www.linkedin.com/in/smbat-poghosyan-429688189/" target="_blank" rel="noreferrer" className="font-medium underline underline-offset-4">
             LinkedIn
           </a>
         </div>
