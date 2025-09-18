@@ -1,47 +1,40 @@
 import React from 'react';
 
+const skills = [
+  'JavaScript (ES6+)',
+  'TypeScript',
+  'Node.js (Express, Nest)',
+  'React (Next.js)',
+  'Angular 2+',
+  'HTML5 & CSS3 (SASS, LESS)',
+  'SQL (MySQL, PostgreSQL)',
+  'NoSQL (MongoDB, Redis)',
+  'RESTful & GraphQL APIs',
+  'Git & GitHub/Bitbucket',
+  'AWS (S3, EC2, Lambda, RDS)',
+  'Firebase',
+  'Jira, Trello, Azure Boards',
+];
+
 const About = () => {
   return (
     <section id="about" className="py-16 animate-fadeIn">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-8">About Me</h2>
-        <div className="flex flex-col md:flex-row items-center gap-8">
-          <div className="md:w-1/2 text-lg text-muted-foreground">
-            <p className="mb-4">
-              At university I studied programming language C ++. My teacher was not so good, and I decided to go to study with a private teacher. Later I became interested in the development of Unity3D(C#) games. And me and my friends even tried to create a team. After the army I began to learn a programming language for web development JavaScript (HTML, CSS) in Armenian Code Academy, snd I'm still studying there.
-            </p>
-            <p>
-              At this moment I know the basic part of JS, HTML and CSS, OOP. I have knowledge of Armenian, Russian and English languages. I am a conscientious person who works hard and pays attention to detail. I'm flexible, quick to pick up new skills and eager to learn from others.
-            </p>
-          </div>
-          <div className="md:w-1/2">
-            {/* TODO: Add skills with progress bars or other visual representation */}
-            <div className="space-y-4">
-              <div>
-                <h3 className="text-lg font-semibold">Javascript</h3>
-                <div className="w-full bg-muted rounded-full h-2.5">
-                  <div className="bg-primary h-2.5 rounded-full" style={{ width: '80%' }}></div>
-                </div>
+        <div className="text-center">
+          <h2 className="text-3xl font-bold mb-4">About Me</h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            As a Full Stack Software Engineer, I possess a strong understanding of both front-end and back-end development. I am well-versed in Web Application Architecture and have had the privilege of working with highly successful development teams.
+          </p>
+        </div>
+
+        <div className="mt-12">
+          <h3 className="text-2xl font-bold text-center mb-8">Professional Skills</h3>
+          <div className="flex flex-wrap justify-center gap-4">
+            {skills.map((skill, index) => (
+              <div key={index} className="bg-muted text-muted-foreground rounded-full px-4 py-2 text-sm font-medium">
+                {skill}
               </div>
-              <div>
-                <h3 className="text-lg font-semibold">HTML</h3>
-                <div className="w-full bg-muted rounded-full h-2.5">
-                  <div className="bg-primary h-2.5 rounded-full" style={{ width: '80%' }}></div>
-                </div>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold">CSS</h3>
-                <div className="w-full bg-muted rounded-full h-2.5">
-                  <div className="bg-primary h-2.5 rounded-full" style={{ width: '70%' }}></div>
-                </div>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold">React JS</h3>
-                <div className="w-full bg-muted rounded-full h-2.5">
-                  <div className="bg-primary h-2.5 rounded-full" style={{ width: '20%' }}></div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
