@@ -1,26 +1,5 @@
 import React from 'react';
-import { contentfulClient } from '@/lib/contentful';
-import { type Entry, type EntryFieldTypes, type EntrySkeletonType } from 'contentful';
-
-// --- Data Fetching and Types ---
-
-interface EducationSkeleton extends EntrySkeletonType {
-  fields: {
-    institution: EntryFieldTypes.Text;
-    degree: EntryFieldTypes.Text;
-    period: EntryFieldTypes.Text;
-    startDate: EntryFieldTypes.Date;
-  };
-  contentTypeId: 'education';
-}
-
-const getEducation = async (): Promise<Entry<EducationSkeleton>[]> => {
-  const entries = await contentfulClient.getEntries<EducationSkeleton>({
-    content_type: 'education',
-    order: ['-fields.startDate'], // Order by start date, newest first
-  });
-  return entries.items;
-};
+import { getEducation } from '@/lib/contentful';
 
 // --- Icon Component ---
 
@@ -57,9 +36,9 @@ const Education = async () => {
               <div className="p-3 bg-primary/10 rounded-full mb-4">
                 <GraduationCapIcon className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="text-xl font-bold mb-2">{edu.fields.institution}</h3>
-              <p className="text-muted-foreground mb-1 flex-grow">{edu.fields.degree}</p>
-              <p className="text-muted-foreground text-sm mt-2">{edu.fields.period}</p>
+              <h3 className="text-xl font-bold mb-2">{edu.fields.institution as string}</h3>
+              <p className="text-muted-foreground mb-1 flex-grow">{edu.fields.degree as string}</p>
+              <p className="text-muted-foreground text-sm mt-2">{edu.fields.period as string}</p>
             </div>
           ))}
         </div>
