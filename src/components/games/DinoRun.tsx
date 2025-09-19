@@ -3,101 +3,146 @@ import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 
 const DinoRun: React.FC = () => {
-  const [isJumping, setIsJumping] = useState(false);
-  const [obstacles, setObstacles] = useState<{ x: number }[]>([]);
-  const [score, setScore] = useState(0);
-  const [isGameOver, setIsGameOver] = useState(false);
-  const dinoRef = useRef<HTMLDivElement>(null);
-  const gameAreaRef = useRef<HTMLDivElement>(null);
+    const [isJumping, setIsJumping] = useState(false);
+    const [jumpCount, setJumpCount] = useState(0);
+    const [obstacles, setObstacles] = useState<{ id: number; x: number; width: number; height: number }[]>([]);
+    const [score, setScore] = useState(0);
+    const [isGameOver, setIsGameOver] = useState(false);
+    const dinoRef = useRef<HTMLDivElement>(null);
+    const gameAreaRef = useRef<HTMLDivElement>(null);
+    const gameLoopRef = useRef<number>();
+    const lastTimeRef = useRef<number>();
 
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.code === 'Space' && !isJumping && !isGameOver) {
+    const handleJump = () => {
+      if (jumpCount < 2) {
         setIsJumping(true);
-        setTimeout(() => setIsJumping(false), 500);
+        setJumpCount(jumpCount + 1);
+        setTimeout(() => {
+          setIsJumping(false);
+          if (jumpCount === 1) {
+            setTimeout(() => setJumpCount(0), 300);
+          }
+        }, 300);
       }
     };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isJumping, isGameOver]);
 
-  useEffect(() => {
-    if (isGameOver) return;
+    useEffect(() => {
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.code === 'Space' && !isGameOver) {
+          e.preventDefault();
+          handleJump();
+        }
+      };
+      window.addEventListener('keydown', handleKeyDown);
+      return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [isGameOver, jumpCount]);
 
-    const gameLoop = setInterval(() => {
-      // Move obstacles
-      setObstacles(prevObstacles => {
-        const newObstacles = prevObstacles
-          .map(o => ({ ...o, x: o.x - 5 }))
-          .filter(o => o.x > -20);
+    const gameLoop = (time: number) => {
+        if (isGameOver) return;
 
-        if (Math.random() < 0.02 && newObstacles.length < 3) {
-          newObstacles.push({ x: gameAreaRef.current?.clientWidth || 600 });
+        if (lastTimeRef.current === undefined) {
+          lastTimeRef.current = time;
+          gameLoopRef.current = requestAnimationFrame(gameLoop);
+          return;
         }
 
-        return newObstacles;
-      });
+        const deltaTime = time - lastTimeRef.current;
 
-      // Check for collisions
-      if (dinoRef.current && gameAreaRef.current) {
-        const dinoRect = dinoRef.current.getBoundingClientRect();
-        obstacles.forEach(obstacle => {
-          const obstacleEl = document.getElementById(`obstacle-${obstacle.x}`);
-          if (obstacleEl) {
-            const obstacleRect = obstacleEl.getBoundingClientRect();
-            if (
-              dinoRect.right > obstacleRect.left &&
-              dinoRect.left < obstacleRect.right &&
-              dinoRect.bottom > obstacleRect.top
-            ) {
-              setIsGameOver(true);
-            }
+        // Move obstacles
+        let speed = 5 + score / 200;
+        setObstacles(prevObstacles => {
+          const newObstacles = prevObstacles
+            .map(o => ({ ...o, x: o.x - speed * (deltaTime / 16) }))
+            .filter(o => o.x > -o.width);
+
+          const spawnThreshold = Math.max(0.01, 0.05 - score / 10000);
+          if (Math.random() < spawnThreshold && newObstacles.length < 4 && (newObstacles.length === 0 || newObstacles[newObstacles.length - 1].x < (gameAreaRef.current?.clientWidth || 600) - 200)) {
+            const newObstacle = {
+                id: Date.now(),
+                x: gameAreaRef.current?.clientWidth || 600,
+                width: 20 + Math.random() * 30,
+                height: 30 + Math.random() * 40,
+            };
+            newObstacles.push(newObstacle);
           }
+
+          return newObstacles;
         });
-      }
 
-      setScore(prevScore => prevScore + 1);
-    }, 50);
+        // Check for collisions
+        if (dinoRef.current && gameAreaRef.current) {
+          const dinoRect = dinoRef.current.getBoundingClientRect();
+          obstacles.forEach(obstacle => {
+            const obstacleEl = document.getElementById(`obstacle-${obstacle.id}`);
+            if (obstacleEl) {
+              const obstacleRect = obstacleEl.getBoundingClientRect();
+              if (
+                dinoRect.right > obstacleRect.left &&
+                dinoRect.left < obstacleRect.right &&
+                dinoRect.bottom > obstacleRect.top &&
+                dinoRect.top < obstacleRect.bottom
+              ) {
+                setIsGameOver(true);
+              }
+            }
+          });
+        }
 
-    return () => clearInterval(gameLoop);
-  }, [obstacles, isGameOver, isJumping]);
+        setScore(prevScore => prevScore + Math.floor(deltaTime / 10));
 
-  const restartGame = () => {
-    setIsGameOver(false);
-    setScore(0);
-    setObstacles([]);
-  };
+        lastTimeRef.current = time;
+        if (!isGameOver) {
+            gameLoopRef.current = requestAnimationFrame(gameLoop);
+        }
+      };
 
-  return (
-    <div className="text-center">
-        <h3 className="text-2xl font-bold mb-4">Dino Run</h3>
-        <div
-            ref={gameAreaRef}
-            className="relative w-full h-64 bg-gray-200 border-2 border-gray-300 overflow-hidden"
-        >
-            <div
-            ref={dinoRef}
-            className={`absolute w-20 h-20 bottom-0 transition-transform duration-500 ${isJumping ? 'translate-y-[-100px]' : 'translate-y-0'}`}
-            style={{ left: '50px' }}
-            >
-                <Image
-                    src="/games/dino.svg"
-                    alt="Dino"
-                    width={80}
-                    height={80}
-                    className="w-full h-full transform scale-x-[-1]"
-                />
-            </div>
-            {obstacles.map((obstacle) => (
-            <div
-                key={obstacle.x}
-                id={`obstacle-${obstacle.x}`}
-                className="absolute w-5 h-10 bg-red-500 bottom-0"
-                style={{ left: `${obstacle.x}px` }}
-            ></div>
-            ))}
-        </div>
-        <div className="mt-4">
+    useEffect(() => {
+        gameLoopRef.current = requestAnimationFrame(gameLoop);
+        return () => {
+            if(gameLoopRef.current) {
+                cancelAnimationFrame(gameLoopRef.current);
+            }
+        }
+    }, [isGameOver, obstacles]);
+
+    const restartGame = () => {
+      setIsGameOver(false);
+      setScore(0);
+      setObstacles([]);
+      setJumpCount(0);
+      lastTimeRef.current = undefined;
+    };
+
+    return (
+      <div className="text-center">
+          <h3 className="text-2xl font-bold mb-4">Dino Run</h3>
+          <div
+              ref={gameAreaRef}
+              className="relative w-full h-80 bg-gray-200 border-2 border-gray-300 overflow-hidden"
+          >
+              <div
+              ref={dinoRef}
+              className={`absolute w-20 h-20 bottom-0 transition-transform duration-300 ${isJumping ? 'translate-y-[-120px]' : 'translate-y-0'}`}
+              style={{ left: '50px' }}
+              >
+                  <Image
+                      src="/games/dino.svg"
+                      alt="Dino"
+                      width={80}
+                      height={80}
+                      className="w-full h-full object-contain"
+                  />
+              </div>
+              {obstacles.map((obstacle) => (
+              <div
+                  key={obstacle.id}
+                  id={`obstacle-${obstacle.id}`}
+                  className="absolute bg-red-500 bottom-0"
+                  style={{ left: `${obstacle.x}px`, width: `${obstacle.width}px`, height: `${obstacle.height}px` }}
+              ></div>
+              ))}
+          </div>
+          <div className="mt-4">
             <p className="text-xl">Score: {score}</p>
             {isGameOver && (
             <div>

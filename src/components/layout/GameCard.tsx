@@ -11,7 +11,7 @@ interface GameCardProps {
 const GameCard: React.FC<GameCardProps> = ({ title, description, image, onClick }) => {
   return (
     <div
-      className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer transform hover:scale-105 transition-transform duration-300"
+      className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer game-card"
       onClick={onClick}
     >
       <div className="relative w-full h-48">
