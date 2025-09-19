@@ -1,8 +1,8 @@
 import React from 'react';
 import { getAboutMe, getSkills } from '@/lib/contentful';
-import HighlightedText from './HighlightedText';
 import ProfessionalSkills from './ProfessionalSkills';
 import DynamicAvatar from './DynamicAvatar';
+import EditableAbout from './EditableAbout';
 
 // --- Main Component ---
 
@@ -36,10 +36,7 @@ const About = async () => {
             />
           </div>
           <div className="md:col-span-2">
-            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl mb-6">About Me</h2>
-            <div className="text-lg text-muted-foreground space-y-4">
-              <HighlightedText text={aboutText} />
-            </div>
+            <EditableAbout initialAboutText={aboutText} />
           </div>
         </div>
 
