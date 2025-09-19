@@ -1,8 +1,8 @@
 import React from 'react';
-import Image from 'next/image';
 import { getAboutMe, getSkills } from '@/lib/contentful';
 import HighlightedText from './HighlightedText';
 import ProfessionalSkills from './ProfessionalSkills';
+import DynamicAvatar from './DynamicAvatar';
 
 // --- Main Component ---
 
@@ -27,13 +27,12 @@ const About = async () => {
     <section id="about" className="py-24 sm:py-32 animate-fadeIn" style={{ animationDelay: '0.2s' }}>
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 gap-12 items-center md:grid-cols-3">
-          <div className="flex justify-center md:col-span-1">
-            <Image
+          <div className="flex justify-center items-center">
+            <DynamicAvatar
               src={avatarUrl}
               alt="Avatar"
               width={200}
               height={200}
-              className="h-40 w-40 rounded-full border-4 border-card shadow-lg md:h-[200px] md:w-[200px]"
             />
           </div>
           <div className="md:col-span-2">

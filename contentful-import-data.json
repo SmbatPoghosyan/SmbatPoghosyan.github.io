@@ -1,8 +1,51 @@
 {
   "version": 1,
-  "contentTypes": [],
+  "contentTypes": [
+    {
+      "sys": {
+        "id": "author",
+        "type": "ContentType"
+      },
+      "name": "Author",
+      "description": "Site owner metadata shown in the header.",
+      "displayField": "name",
+      "fields": [
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    }
+  ],
   "assets": [],
   "entries": [
+    {
+      "sys": {
+        "id": "author-primary",
+        "type": "Entry",
+        "version": 1,
+        "createdAt": "2025-09-18T00:00:00Z",
+        "updatedAt": "2025-09-18T00:00:00Z",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "author"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Smbat Poghosyan"
+        }
+      }
+    },
     {
       "sys": {
         "id": "about-me-primary",

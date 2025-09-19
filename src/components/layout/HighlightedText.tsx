@@ -10,7 +10,7 @@ const HighlightedText: React.FC<HighlightedTextProps> = ({ text }) => {
     .replace(/\*(.*?)\*/g, '<em>$1</em>');
   return (
     <p
-      className="text-lg text-muted-foreground max-w-3xl mx-auto"
+      className="text-lg text-muted-foreground max-w-3xl"
       dangerouslySetInnerHTML={{ __html: html }}
     />
   );

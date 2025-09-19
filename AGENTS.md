@@ -20,7 +20,7 @@ Create a `.env.local` with `CONTENTFUL_SPACE_ID` and `CONTENTFUL_ACCESS_TOKEN`; 
 
 ## Contentful Data Import Playbook
 - **Prereqs**: Ensure the Contentful CLI is logged in (`contentful login`) and `.env.local` exposes `CONTENTFUL_SPACE_ID`/`CONTENTFUL_ACCESS_TOKEN`. Export a management token as `CONTENTFUL_MANAGEMENT_TOKEN` (e.g., from `~/.contentfulrc.json`) before running the publish script. The space must already contain the published content types listed below (notably `aboutMe` must include the `avatarUrl` symbol field).
-- **Source of truth**: `contentful-import-data.json` stores the full import bundle (entries only). Keep IDs stable—updates are idempotent and safe to re-run.
+- **Source of truth**: `contentful-import-data.json` stores the full import bundle (content model + entries for local dev). Keep IDs stable—updates are idempotent and safe to re-run.
 - **Import command**: Run `contentful space import --space-id z79er4rv39my --content-file contentful-import-data.json`. No extra flags are needed when the content model is unchanged. The CLI reports only updates because entries already exist.
 - **After import**: Entries arrive unpublished. Publish them in bulk with the snippet below (adjust the IDs list if it changes) or via the Contentful UI. If the data file changes, rerun the import and republish.
 
@@ -31,6 +31,7 @@ Create a `.env.local` with `CONTENTFUL_SPACE_ID` and `CONTENTFUL_ACCESS_TOKEN`; 
   const spaceId = process.env.CONTENTFUL_SPACE_ID;
   const environmentId = 'master';
   const ids = [
+    'author-primary',
     'about-me-primary',
     'contact-primary',
     'workhistory-zema',
@@ -97,6 +98,7 @@ Create a `.env.local` with `CONTENTFUL_SPACE_ID` and `CONTENTFUL_ACCESS_TOKEN`; 
 - **Failure recovery**: Validation errors often point to schema mismatches (e.g., missing fields). Fix the content type, publish it, and re-run the import. The `--skip-content-model` flag is handy when the bundle only contains entries.
 
 ## Contentful Schema Reference
+- **Author (`author`)**: `name` (Symbol, required; displayed in the site header).
 - **About Me (`aboutMe`)**: `text` (Text, optional), `avatar` (Asset link, optional), `avatarUrl` (Symbol, optional; used when no asset is provided). Frontend prefers the asset URL, then `avatarUrl`, else `/default-avatar.svg`.
 - **Contact (`contact`)**: `email` (Symbol), `phone` (Symbol), `socialLinks` (Object, optional key/value map).
 - **Work History (`workHistory`)**: `title`, `company`, `location`, `period` (all Symbols), `description` (Text), `startDate` (Date, leveraged for ordering and experience calculation).

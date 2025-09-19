@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { DndContext, closestCenter, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
+import { DndContext, closestCenter, PointerSensor, useSensor, useSensors, DragEndEvent } from '@dnd-kit/core';
 import { arrayMove, SortableContext, rectSortingStrategy } from '@dnd-kit/sortable';
 import { getProjects } from '@/lib/contentful';
 import ProjectCard from './ProjectCard';
@@ -14,14 +14,15 @@ const Projects = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       const fetchedProjects = await getProjects();
+      console.log("Fetched projects:", fetchedProjects);
       setProjects(fetchedProjects);
     };
     fetchProjects();
   }, []);
 
-  const handleDragEnd = (event: any) => {
+  const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;
-    if (active.id !== over.id) {
+    if (over && active.id !== over.id) {
       setProjects((items) => {
         const oldIndex = items.findIndex((item) => item.sys.id === active.id);
         const newIndex = items.findIndex((item) => item.sys.id === over.id);
