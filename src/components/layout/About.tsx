@@ -1,6 +1,6 @@
 import React from 'react';
 import { getAboutMe, getSkills } from '@/lib/contentful';
-import ProfessionalSkills from './ProfessionalSkills';
+import EditableProfessionalSkills from './EditableProfessionalSkills';
 import DynamicAvatar from './DynamicAvatar';
 import EditableAbout from './EditableAbout';
 
@@ -41,7 +41,7 @@ const About = async () => {
         </div>
 
         <div className="mt-24">
-          <ProfessionalSkills skills={skillsData} />
+          <EditableProfessionalSkills skills={skillsData} />
         </div>
       </div>
     </section>
