@@ -29,7 +29,7 @@ const Contact = async () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">Get in Touch</h2>
           <p className="mt-6 text-lg leading-8 text-muted-foreground max-w-3xl mx-auto">
-            I'm always open to discussing new projects, creative ideas, or opportunities to be part of an amazing team.
+            I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of an amazing team.
           </p>
         </div>
 
