@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Background -->
+  <rect width="200" height="200" fill="#2d5016" rx="20"/>
+  
+  <!-- Grid pattern -->
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <rect width="20" height="20" fill="none" stroke="#3d6b1a" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+  </defs>
+  <rect width="200" height="200" fill="url(#grid)"/>
+  
+  <!-- Snake body -->
+  <rect x="60" y="80" width="16" height="16" fill="#7cb342" rx="2"/>
+  <rect x="80" y="80" width="16" height="16" fill="#8bc34a" rx="2"/>
+  <rect x="100" y="80" width="16" height="16" fill="#9ccc65" rx="2"/>
+  <rect x="120" y="80" width="16" height="16" fill="#aed581" rx="2"/>
+  
+  <!-- Snake head -->
+  <rect x="140" y="80" width="16" height="16" fill="#4caf50" rx="3"/>
+  
+  <!-- Snake eyes -->
+  <circle cx="147" cy="85" r="1.5" fill="#1b5e20"/>
+  <circle cx="149" cy="85" r="1.5" fill="#1b5e20"/>
+  
+  <!-- Food/Apple -->
+  <circle cx="88" cy="128" r="8" fill="#f44336"/>
+  <rect x="86" y="120" width="2" height="6" fill="#2e7d32"/>
+  <ellipse cx="89" cy="122" rx="3" ry="1.5" fill="#4caf50"/>
+  
+  <!-- Border -->
+  <rect width="200" height="200" fill="none" stroke="#1b5e20" stroke-width="4" rx="20"/>
+</svg>

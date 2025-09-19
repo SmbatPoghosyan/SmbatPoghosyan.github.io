@@ -61,8 +61,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, disableLinkClicks = 
                 src={imageUrl}
                 alt={imageAlt}
                 fill
-                objectFit="cover"
-                className="transition-transform duration-300 group-hover:scale-105"
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
               />
             ) : (
               <div className="flex items-center justify-center h-full bg-secondary text-muted-foreground">

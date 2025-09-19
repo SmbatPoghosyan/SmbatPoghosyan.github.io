@@ -16,7 +16,7 @@ const games = [
   {
     title: "Snake",
     description: "Eat the food and grow your snake, but don't hit the walls!",
-    image: "/games/snake.png",
+    image: "/games/snake.svg",
     component: <Snake />,
   },
   {

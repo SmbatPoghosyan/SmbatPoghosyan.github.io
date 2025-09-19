@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 
 const DinoRun: React.FC = () => {
   const [isJumping, setIsJumping] = useState(false);
@@ -76,9 +77,17 @@ const DinoRun: React.FC = () => {
         >
             <div
             ref={dinoRef}
-            className={`absolute w-10 h-10 bg-green-500 bottom-0 transition-transform duration-500 ${isJumping ? 'translate-y-[-100px]' : 'translate-y-0'}`}
+            className={`absolute w-20 h-20 bottom-0 transition-transform duration-500 ${isJumping ? 'translate-y-[-100px]' : 'translate-y-0'}`}
             style={{ left: '50px' }}
-            ></div>
+            >
+                <Image
+                    src="/games/dino.svg"
+                    alt="Dino"
+                    width={80}
+                    height={80}
+                    className="w-full h-full transform scale-x-[-1]"
+                />
+            </div>
             {obstacles.map((obstacle) => (
             <div
                 key={obstacle.x}
