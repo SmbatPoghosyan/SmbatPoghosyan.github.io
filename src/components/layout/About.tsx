@@ -26,17 +26,17 @@ const About = async () => {
   return (
     <section id="about" className="py-24 sm:py-32 animate-fadeIn" style={{ animationDelay: '0.2s' }}>
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
-          <div className="lg:col-span-1 flex justify-center">
+        <div className="grid grid-cols-1 gap-12 items-center md:grid-cols-3">
+          <div className="flex justify-center md:col-span-1">
             <Image
               src={avatarUrl}
               alt="Avatar"
               width={200}
               height={200}
-              className="rounded-full shadow-lg border-4 border-card"
+              className="h-40 w-40 rounded-full border-4 border-card shadow-lg md:h-[200px] md:w-[200px]"
             />
           </div>
-          <div className="lg:col-span-2">
+          <div className="md:col-span-2">
             <h2 className="text-4xl font-bold tracking-tight sm:text-5xl mb-6">About Me</h2>
             <div className="text-lg text-muted-foreground space-y-4">
               <HighlightedText text={aboutText} />
