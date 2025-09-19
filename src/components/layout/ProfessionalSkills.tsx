@@ -16,12 +16,17 @@ const ProfessionalSkills: React.FC<ProfessionalSkillsProps> = ({ skills }) => {
     return acc;
   }, {} as Record<string, ProfessionalSkillEntry[]>);
 
+  // Sort skills within each category by strength (descending)
+  for (const category in skillsByCategory) {
+    skillsByCategory[category].sort((a, b) => (b.fields.strength as number) - (a.fields.strength as number));
+  }
+
   return (
     <div>
       <h3 className="text-2xl font-bold text-center mb-8">Professional Skills</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {Object.entries(skillsByCategory).map(([category, skills]) => (
-          <div key={category} className="bg-muted rounded-lg p-6">
+          <div key={category} className="bg-muted rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow duration-300">
             <h4 className="text-xl font-bold mb-4">{category as string}</h4>
             <div className="space-y-4">
               {skills.map((skill) => (

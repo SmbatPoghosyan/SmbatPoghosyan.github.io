@@ -2,6 +2,13 @@ import { type Entry, type EntryFieldTypes, type EntrySkeletonType } from 'conten
 
 // --- Base Skeletons ---
 
+export interface AuthorSkeleton extends EntrySkeletonType {
+  fields: {
+    name: EntryFieldTypes.Symbol;
+  };
+  contentTypeId: 'author';
+}
+
 export interface AboutMeSkeleton extends EntrySkeletonType {
   fields: {
     text: EntryFieldTypes.Text;
@@ -63,6 +70,7 @@ export interface ProjectSkeleton extends EntrySkeletonType {
 
 // --- Entry Types ---
 
+export type AuthorEntry = Entry<AuthorSkeleton>;
 export type AboutMeEntry = Entry<AboutMeSkeleton>;
 export type ContactEntry = Entry<ContactSkeleton>;
 export type WorkHistoryEntry = Entry<WorkHistorySkeleton>;

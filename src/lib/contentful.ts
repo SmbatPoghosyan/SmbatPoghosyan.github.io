@@ -1,5 +1,7 @@
 import { createClient } from 'contentful';
 import {
+  type AuthorEntry,
+  type AuthorSkeleton,
   type AboutMeEntry,
   type AboutMeSkeleton,
   type ContactEntry,
@@ -33,6 +35,15 @@ export const getAboutMe = async (): Promise<AboutMeEntry | null> => {
     content_type: 'aboutMe',
     limit: 1,
     include: 2,
+  });
+  return entries.items[0] || null;
+};
+
+export const getAuthor = async (): Promise<AuthorEntry | null> => {
+  if (!contentfulClient) return null;
+  const entries = await contentfulClient.getEntries<AuthorSkeleton>({
+    content_type: 'author',
+    limit: 1,
   });
   return entries.items[0] || null;
 };
