@@ -111,13 +111,13 @@ const Snake: React.FC = () => {
     <div className="text-center">
         <h3 className="text-2xl font-bold mb-4">Snake</h3>
         <div
-            className="relative bg-gray-900"
+            className="relative retro-bg"
             style={{ width: GRID_SIZE * TILE_SIZE, height: GRID_SIZE * TILE_SIZE, border: '2px solid #333' }}
         >
             {snake.map((segment, index) => (
                 <div
                     key={index}
-                    className="absolute bg-green-500"
+                    className="absolute bg-green-500 border border-green-700"
                     style={{ left: segment.x * TILE_SIZE, top: segment.y * TILE_SIZE, width: TILE_SIZE, height: TILE_SIZE}}
                 />
             ))}
