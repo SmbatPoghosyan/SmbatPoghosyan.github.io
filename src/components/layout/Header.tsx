@@ -1,4 +1,5 @@
 import React from 'react';
+import { getAuthor } from '@/lib/contentful';
 
 const navLinks = [
   { href: '#about', label: 'About' },
@@ -8,19 +9,21 @@ const navLinks = [
   { href: '#contact', label: 'Contact' },
 ];
 
-const Header = () => {
+const Header = async () => {
+  const author = await getAuthor();
+
   return (
-    <header className="sticky top-0 z-50 w-full border-b backdrop-blur-lg bg-background/80 border-border/40">
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
         <a href="#" className="flex items-center space-x-2">
-          <span className="font-bold text-lg tracking-tight">Smbat Poghosyan</span>
+          <span className="font-bold text-lg tracking-tight">{author?.fields.name as string}</span>
         </a>
         <nav className="hidden items-center space-x-6 text-sm md:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="font-medium text-muted-foreground/80 transition-colors hover:text-primary"
+              className="font-medium text-muted-foreground/80 transition-colors hover:text-foreground"
             >
               {link.label}
             </a>
