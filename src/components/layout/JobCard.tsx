@@ -7,7 +7,7 @@ interface JobCardProps {
 
 const JobCard: React.FC<JobCardProps> = ({ job }) => {
   return (
-    <div className="bg-background rounded-lg p-6">
+    <div className="bg-card border rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
       <div className="flex justify-between items-start">
         <div>
           <h3 className="text-xl font-bold">{job.fields.title as string}</h3>

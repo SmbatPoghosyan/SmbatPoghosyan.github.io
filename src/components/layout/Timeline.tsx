@@ -22,9 +22,7 @@ const Timeline: React.FC<TimelineProps> = ({ jobs }) => {
             ></div>
             <div
               className={`w-full pl-10 md:w-1/2 ${
-                index % 2 === 0
-                  ? 'md:pl-0 md:pr-8 md:text-right'
-                  : 'md:pl-8 md:text-left md:ml-auto'
+                index % 2 === 0 ? 'md:pl-0 md:pr-8 md:mr-auto' : 'md:pl-8 md:ml-auto'
               }`}
             >
               <JobCard job={job} />

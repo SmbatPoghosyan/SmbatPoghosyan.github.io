@@ -18,7 +18,7 @@ const Education = async () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {educationHistory.map((edu) => (
-            <div key={edu.sys.id} className="bg-card rounded-lg p-8 text-center flex flex-col items-center border shadow-sm hover:shadow-lg transition-shadow duration-300">
+            <div key={edu.sys.id} className="bg-card rounded-lg p-8 text-center flex flex-col items-center border shadow-sm hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
               <div className="p-4 bg-primary/10 rounded-full mb-6">
                 <GraduationCap className="h-10 w-10 text-primary" />
               </div>
