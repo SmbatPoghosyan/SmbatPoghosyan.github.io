@@ -40,15 +40,20 @@ const ProfessionalSkills: React.FC<ProfessionalSkillsProps> = ({
     return acc;
   }, {} as Record<string, ProfessionalSkillEntry[]>);
 
+  const sortedCategories = Object.keys(skillsByCategory).sort();
+
   for (const category in skillsByCategory) {
-    skillsByCategory[category].sort((a, b) => (b.fields.strength as number) - (a.fields.strength as number));
+    if (editingCategory !== category) {
+      skillsByCategory[category].sort((a, b) => (b.fields.strength as number) - (a.fields.strength as number));
+    }
   }
 
   return (
     <div>
       <h3 className="text-2xl font-bold text-center mb-8">Professional Skills</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {Object.entries(skillsByCategory).map(([category, skills]) => {
+        {sortedCategories.map(category => {
+          const skills = skillsByCategory[category];
           const isCategoryInEdit = editingCategory === category;
           return (
             <div key={category} className="group relative" onDoubleClick={() => onDoubleClick?.(category)}>
@@ -132,14 +137,12 @@ const ProfessionalSkills: React.FC<ProfessionalSkillsProps> = ({
             </div>
           );
         })}
-        {isEditing && (
-          <div
-            className="group relative flex items-center justify-center bg-gradient-to-br from-card via-card/95 to-card/90 rounded-lg p-6 border-2 border-dashed border-border/50 cursor-pointer hover:border-primary/50 transition-all duration-300"
-            onClick={onAdd}
-          >
-            <div className="text-5xl text-foreground/30 group-hover:text-primary/80 transition-colors duration-300">+</div>
-          </div>
-        )}
+        <div
+          className="group relative flex items-center justify-center bg-gradient-to-br from-card via-card/95 to-card/90 rounded-lg p-6 border-2 border-dashed border-border/50 cursor-pointer hover:border-primary/50 transition-all duration-300"
+          onClick={onAdd}
+        >
+          <div className="text-5xl text-foreground/30 group-hover:text-primary/80 transition-colors duration-300">+</div>
+        </div>
       </div>
     </div>
   );
