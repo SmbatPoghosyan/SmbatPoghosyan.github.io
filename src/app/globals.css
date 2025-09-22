@@ -137,9 +137,23 @@
     transition: transform 0.5s;
 }
 
+.game-card {
+    animation: subtle-float 3s ease-in-out infinite;
+}
+
 .game-card:hover {
     transform: rotateY(10deg) rotateX(5deg) scale(1.05);
     box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 0 15px rgba(255,255,255,0.5);
+    animation-play-state: paused;
+}
+
+@keyframes subtle-float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
 }
 
 .retro-bg {

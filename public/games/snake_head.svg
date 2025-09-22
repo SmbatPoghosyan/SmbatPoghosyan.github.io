@@ -1,0 +1,16 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Snake head body -->
+  <rect x="4" y="4" width="16" height="16" rx="8" fill="#4CAF50" stroke="#388E3C" stroke-width="0.5"/>
+  
+  <!-- Eyes -->
+  <circle cx="9" cy="10" r="2" fill="#FFFFFF"/>
+  <circle cx="15" cy="10" r="2" fill="#FFFFFF"/>
+  
+  <!-- Eye pupils -->
+  <circle cx="9.5" cy="10.5" r="1" fill="#000000"/>
+  <circle cx="15.5" cy="10.5" r="1" fill="#000000"/>
+  
+  <!-- Tongue -->
+  <path d="M12 16L12 18L11 19L13 19L12 18Z" fill="#FF5722"/>
+  <path d="M10.5 19L10 20M13.5 19L14 20" stroke="#FF5722" stroke-width="1" stroke-linecap="round"/>
+</svg>

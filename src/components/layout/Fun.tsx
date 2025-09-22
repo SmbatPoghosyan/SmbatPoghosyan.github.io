@@ -5,30 +5,40 @@ import Modal from "./Modal";
 import DinoRun from "../games/DinoRun";
 import Snake from "../games/Snake";
 import Clicker from "../games/Clicker";
+import SnakePreview from "../games/SnakePreview";
 
-const games = [
-    {
-      title: "Dino Run",
-      description: "Jump over obstacles and see how long you can survive.",
-      image: "/games/dino.svg",
-      component: <DinoRun />,
-      instructions: "Press the Space bar to jump. Press it again in the air to double jump.",
-    },
-    {
-      title: "Snake",
-      description: "Eat the food and grow your snake, but don't hit the walls!",
-      image: "/games/snake.svg",
-      component: <Snake />,
-      instructions: "Use the Arrow keys to control the snake. Eat the red food to grow.",
-    },
-    {
-      title: "Clicker",
-      description: "Click the button as many times as you can.",
-      image: "/games/clicker.svg",
-      component: <Clicker />,
-      instructions: "Click the button as many times as you can in 15 seconds.",
-    },
-  ];
+type GameDefinition = {
+  title: string;
+  description: string;
+  image?: string | string[];
+  previewComponent?: React.ReactNode;
+  component: React.ReactNode;
+  instructions: string;
+};
+
+const games: GameDefinition[] = [
+  {
+    title: "Dino Run",
+    description: "Jump over obstacles and see how long you can survive.",
+    image: ["/games/Dino1.png", "/games/Dino2.png"],
+    component: <DinoRun />,
+    instructions: "Press the Space bar to jump. Press it again in the air to double jump.",
+  },
+  {
+    title: "Snake",
+    description: "Eat the food and grow your snake, but don't hit the walls!",
+    previewComponent: <SnakePreview />,
+    component: <Snake />,
+    instructions: "Use the Arrow keys to control the snake. Eat the red food to grow.",
+  },
+  {
+    title: "Clicker",
+    description: "Click the button as many times as you can.",
+    image: "/games/clicker.svg",
+    component: <Clicker />,
+    instructions: "Click the button as many times as you can in 15 seconds.",
+  },
+];
 
   type Game = (typeof games)[0];
 
@@ -56,6 +66,7 @@ const games = [
                 title={game.title}
                 description={game.description}
                 image={game.image}
+                previewComponent={game.previewComponent}
                 onClick={() => openModal(game)}
               />
             ))}

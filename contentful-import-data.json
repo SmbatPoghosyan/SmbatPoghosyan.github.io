@@ -424,6 +424,9 @@
         },
         "strength": {
           "en-US": 5
+        },
+        "order": {
+          "en-US": 0
         }
       }
     },
@@ -451,6 +454,9 @@
         },
         "strength": {
           "en-US": 5
+        },
+        "order": {
+          "en-US": 1
         }
       }
     },
@@ -478,6 +484,9 @@
         },
         "strength": {
           "en-US": 5
+        },
+        "order": {
+          "en-US": 2
         }
       }
     },
@@ -505,6 +514,9 @@
         },
         "strength": {
           "en-US": 4
+        },
+        "order": {
+          "en-US": 3
         }
       }
     },
@@ -532,6 +544,9 @@
         },
         "strength": {
           "en-US": 5
+        },
+        "order": {
+          "en-US": 4
         }
       }
     },
@@ -559,6 +574,9 @@
         },
         "strength": {
           "en-US": 5
+        },
+        "order": {
+          "en-US": 1000
         }
       }
     },
@@ -586,6 +604,9 @@
         },
         "strength": {
           "en-US": 4
+        },
+        "order": {
+          "en-US": 1001
         }
       }
     },
@@ -613,6 +634,9 @@
         },
         "strength": {
           "en-US": 4
+        },
+        "order": {
+          "en-US": 1002
         }
       }
     },
@@ -640,6 +664,9 @@
         },
         "strength": {
           "en-US": 5
+        },
+        "order": {
+          "en-US": 1003
         }
       }
     },
@@ -667,6 +694,9 @@
         },
         "strength": {
           "en-US": 5
+        },
+        "order": {
+          "en-US": 2000
         }
       }
     },
@@ -694,6 +724,9 @@
         },
         "strength": {
           "en-US": 3
+        },
+        "order": {
+          "en-US": 3000
         }
       }
     },
@@ -721,6 +754,9 @@
         },
         "strength": {
           "en-US": 3
+        },
+        "order": {
+          "en-US": 3001
         }
       }
     },
@@ -748,6 +784,9 @@
         },
         "strength": {
           "en-US": 5
+        },
+        "order": {
+          "en-US": 2001
         }
       }
     }

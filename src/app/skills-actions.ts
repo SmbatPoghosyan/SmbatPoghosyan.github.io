@@ -7,7 +7,7 @@ const spaceId = process.env.CONTENTFUL_SPACE_ID;
 const managementToken = process.env.CONTENTFUL_MANAGEMENT_TOKEN;
 const environmentId = 'master';
 
-export async function createSkill(category: string, name: string, strength: number) {
+export async function createSkill(category: string, name: string, strength: number, order: number) {
   if (!spaceId || !managementToken) {
     return { error: 'Contentful environment variables are not configured.' };
   }
@@ -25,20 +25,31 @@ export async function createSkill(category: string, name: string, strength: numb
         category: { 'en-US': category },
         name: { 'en-US': name },
         strength: { 'en-US': strength },
+        order: { 'en-US': order },
       },
     });
 
-    await entry.publish();
+    const publishedEntry = await entry.publish();
 
     revalidatePath('/');
-    return { success: true, message: 'Skill created successfully.' };
+    return {
+      success: true,
+      message: 'Skill created successfully.',
+      entryId: publishedEntry.sys.id,
+    };
   } catch (error) {
     console.error('Contentful create failed:', error);
     return { error: 'Failed to create Contentful entry.' };
   }
 }
 
-export async function updateSkill(id: string, category: string, name: string, strength: number) {
+export async function updateSkill(
+  id: string,
+  category: string,
+  name: string,
+  strength: number,
+  order: number,
+) {
   if (!spaceId || !managementToken) {
     return { error: 'Contentful environment variables are not configured.' };
   }
@@ -56,6 +67,7 @@ export async function updateSkill(id: string, category: string, name: string, st
       entry.fields.category = { 'en-US': category };
       entry.fields.name = { 'en-US': name };
       entry.fields.strength = { 'en-US': strength };
+      entry.fields.order = { 'en-US': order };
 
       const updatedEntry = await entry.update();
       await updatedEntry.publish();

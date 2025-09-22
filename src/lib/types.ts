@@ -54,6 +54,7 @@ export interface ProfessionalSkillSkeleton extends EntrySkeletonType {
     name: EntryFieldTypes.Symbol;
     category: EntryFieldTypes.Symbol;
     strength: EntryFieldTypes.Integer;
+    order: EntryFieldTypes.Integer;
   };
   contentTypeId: 'professionalSkill';
 }
