@@ -7,14 +7,16 @@ interface GameCardProps {
   image?: string | string[];
   previewComponent?: React.ReactNode;
   onClick: () => void;
+  // Deterministic animation delay (in seconds) provided by parent to avoid SSR/CSR mismatches
+  animationDelaySec?: number;
 }
 
-const GameCard: React.FC<GameCardProps> = ({ title, description, image, previewComponent, onClick }) => {
+const GameCard: React.FC<GameCardProps> = ({ title, description, image, previewComponent, onClick, animationDelaySec }) => {
   const frames = useMemo(() => (Array.isArray(image) ? image : image ? [image] : []), [image]);
   const [frameIndex, setFrameIndex] = useState(0);
-  
-  // Add random delay for floating animation
-  const animationDelay = useMemo(() => Math.random() * 2, []);
+
+  // Deterministic delay from parent; default to 0 for SSR stability
+  const animationDelay = animationDelaySec ?? 0;
 
   useEffect(() => {
     setFrameIndex(0);
@@ -39,7 +41,7 @@ const GameCard: React.FC<GameCardProps> = ({ title, description, image, previewC
       className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer game-card transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:-translate-y-2"
       onClick={onClick}
       style={{
-        animationDelay: `${animationDelay}s`
+        animationDelay: `${animationDelay.toFixed(3)}s`
       }}
     >
       <div className="relative w-full h-48 overflow-hidden bg-gray-100 flex items-center justify-center">

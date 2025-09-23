@@ -68,6 +68,7 @@ const games: GameDefinition[] = [
                 image={game.image}
                 previewComponent={game.previewComponent}
                 onClick={() => openModal(game)}
+                animationDelaySec={index * 0.35}
               />
             ))}
           </div>

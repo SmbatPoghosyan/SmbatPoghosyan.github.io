@@ -155,36 +155,37 @@ const EditableProfessionalSkills: React.FC<EditableProfessionalSkillsProps> = ({
       }
     }
 
-    return categoryOrder
-      .map((categoryId) => {
-        const orderedIds = skillOrderByCategory[categoryId] ?? [];
-        const orderedSkills = orderedIds
-          .map((skillId) => skills.find((skill) => skill.sys.id === skillId))
-          .filter((skill): skill is ProfessionalSkillEntry => Boolean(skill));
+    const result: CategoryDisplay[] = [];
+    for (const categoryId of categoryOrder) {
+      const orderedIds = skillOrderByCategory[categoryId] ?? [];
+      const orderedSkills = orderedIds
+        .map((skillId) => skills.find((skill) => skill.sys.id === skillId))
+        .filter((skill): skill is ProfessionalSkillEntry => Boolean(skill));
 
-        const fallbackSkills = skillsByCategory.get(categoryId) ?? [];
-        for (const fallbackSkill of fallbackSkills) {
-          if (!orderedSkills.some((existing) => existing.sys.id === fallbackSkill.sys.id)) {
-            orderedSkills.push(fallbackSkill);
-          }
+      const fallbackSkills = skillsByCategory.get(categoryId) ?? [];
+      for (const fallbackSkill of fallbackSkills) {
+        if (!orderedSkills.some((existing) => existing.sys.id === fallbackSkill.sys.id)) {
+          orderedSkills.push(fallbackSkill);
         }
+      }
 
-        if (orderedSkills.length === 0) {
-          return null;
-        }
+      if (orderedSkills.length === 0) {
+        continue;
+      }
 
-        const name =
-          categoryDraftNames[categoryId] ??
-          ((orderedSkills[0].fields.category as string) ?? 'New Category');
+      const name =
+        categoryDraftNames[categoryId] ??
+        ((orderedSkills[0].fields.category as string) ?? 'New Category');
 
-        return {
-          id: categoryId,
-          name,
-          skills: orderedSkills,
-          error: categoryErrors[categoryId],
-        } satisfies CategoryDisplay;
-      })
-      .filter((value): value is CategoryDisplay => Boolean(value));
+      result.push({
+        id: categoryId,
+        name,
+        skills: orderedSkills,
+        error: categoryErrors[categoryId],
+      });
+    }
+
+    return result;
   }, [
     skills,
     skillCategoryMap,

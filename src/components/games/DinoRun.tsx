@@ -13,8 +13,8 @@ const DinoRun: React.FC = () => {
     const [dinoFrame, setDinoFrame] = useState(0);
     const dinoRef = useRef<HTMLDivElement>(null);
     const gameAreaRef = useRef<HTMLDivElement>(null);
-    const gameLoopRef = useRef<number>();
-    const lastTimeRef = useRef<number>();
+  const gameLoopRef = useRef<number | undefined>(undefined);
+  const lastTimeRef = useRef<number | undefined>(undefined);
     const scoreRef = useRef(0);
     const obstaclesRef = useRef<Obstacle[]>([]);
 

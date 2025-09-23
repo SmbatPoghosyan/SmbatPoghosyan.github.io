@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { type ProfessionalSkillEntry } from '@/lib/types';
 import SkillRating from './SkillRating';
 import { Trash2, Loader2, GripVertical } from 'lucide-react';
@@ -67,6 +67,15 @@ interface SkillItemProps {
   onSkillDelete?: (id: string) => void;
 }
 
+// Avoid hydration mismatches by only attaching dynamic DnD ARIA attributes after mount
+const useIsMounted = () => {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  return mounted;
+};
+
 const SkillSortableItem: React.FC<SkillItemProps> = ({ skill, isEditing, onSkillChange, onSkillDelete }) => {
   const {
     attributes,
@@ -77,6 +86,9 @@ const SkillSortableItem: React.FC<SkillItemProps> = ({ skill, isEditing, onSkill
     transition,
     isDragging,
   } = useSortable({ id: skill.sys.id, disabled: !isEditing });
+
+  const isMounted = useIsMounted();
+  const activatorProps = useMemo(() => (isMounted ? { ...listeners, ...attributes } : {}), [isMounted, listeners, attributes]);
 
   const style: React.CSSProperties = {
     transform: CSS.Transform.toString(transform),
@@ -93,8 +105,8 @@ const SkillSortableItem: React.FC<SkillItemProps> = ({ skill, isEditing, onSkill
       <button
         type="button"
         ref={setActivatorNodeRef}
-        {...listeners}
-        {...attributes}
+        // Only spread dynamic ARIA attributes and listeners after mount to keep SSR/CSR markup stable
+        {...activatorProps}
         className="mr-1 flex h-8 w-8 items-center justify-center rounded-md text-foreground/40 transition hover:text-foreground"
         aria-label="Drag skill"
       >
@@ -156,6 +168,9 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
     transition,
     isDragging,
   } = useSortable({ id: category.id, disabled: Boolean(isSaving) });
+
+  const isMounted = useIsMounted();
+  const activatorProps = useMemo(() => (isMounted ? { ...listeners, ...attributes } : {}), [isMounted, listeners, attributes]);
 
   const containerStyle: React.CSSProperties = {
     transform: CSS.Transform.toString(transform),
@@ -232,8 +247,8 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
             <button
               type="button"
               ref={setActivatorNodeRef}
-              {...attributes}
-              {...listeners}
+              // Avoid hydration mismatches: attach DnD attributes after mount only
+              {...activatorProps}
               className="flex h-8 w-8 items-center justify-center rounded-md text-foreground/30 transition hover:text-foreground"
               aria-label="Drag category"
             >
