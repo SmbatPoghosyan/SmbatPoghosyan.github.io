@@ -7,7 +7,7 @@ const spaceId = process.env.CONTENTFUL_SPACE_ID;
 const managementToken = process.env.CONTENTFUL_MANAGEMENT_TOKEN;
 const environmentId = 'master';
 
-export async function createSkill(category: string, name: string, strength: number, order: number) {
+export async function createSkill(categoryId: string, name: string, strength: number, order: number) {
   if (!spaceId || !managementToken) {
     return { error: 'Contentful environment variables are not configured.' };
   }
@@ -22,7 +22,15 @@ export async function createSkill(category: string, name: string, strength: numb
 
     const entry = await environment.createEntry('professionalSkill', {
       fields: {
-        category: { 'en-US': category },
+        category: {
+          'en-US': {
+            sys: {
+              type: 'Link',
+              linkType: 'Entry',
+              id: categoryId,
+            },
+          },
+        },
         name: { 'en-US': name },
         strength: { 'en-US': strength },
         order: { 'en-US': order },
@@ -45,7 +53,7 @@ export async function createSkill(category: string, name: string, strength: numb
 
 export async function updateSkill(
   id: string,
-  category: string,
+  categoryId: string,
   name: string,
   strength: number,
   order: number,
@@ -64,7 +72,15 @@ export async function updateSkill(
     const entry = await environment.getEntry(id);
 
     if (entry) {
-      entry.fields.category = { 'en-US': category };
+      entry.fields.category = {
+        'en-US': {
+          sys: {
+            type: 'Link',
+            linkType: 'Entry',
+            id: categoryId,
+          },
+        },
+      };
       entry.fields.name = { 'en-US': name };
       entry.fields.strength = { 'en-US': strength };
       entry.fields.order = { 'en-US': order };

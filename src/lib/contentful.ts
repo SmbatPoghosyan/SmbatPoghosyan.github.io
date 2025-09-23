@@ -10,6 +10,8 @@ import {
   type EducationSkeleton,
   type ProfessionalSkillEntry,
   type ProfessionalSkillSkeleton,
+  type ProfessionalSkillCategoryEntry,
+  type ProfessionalSkillCategorySkeleton,
   type ProjectEntry,
   type ProjectSkeleton,
   type WorkHistoryEntry,
@@ -52,10 +54,20 @@ export const getSkills = async (): Promise<ProfessionalSkillEntry[]> => {
   if (!contentfulClient) return [];
   const entries = await contentfulClient.getEntries<ProfessionalSkillSkeleton>({
     content_type: 'professionalSkill',
-    order: ['fields.category', 'fields.strength'],
+    order: ['fields.order'],
+    include: 1,
   });
   return entries.items;
 };
+
+export const getSkillCategories = async (): Promise<ProfessionalSkillCategoryEntry[]> => {
+    if (!contentfulClient) return [];
+    const entries = await contentfulClient.getEntries<ProfessionalSkillCategorySkeleton>({
+        content_type: 'professionalSkillCategory',
+        order: ['fields.order'],
+    });
+    return entries.items;
+}
 
 export const getContact = async (): Promise<ContactEntry | null> => {
   if (!contentfulClient) return null;

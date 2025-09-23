@@ -1,5 +1,5 @@
 import React from 'react';
-import { getAboutMe, getSkills } from '@/lib/contentful';
+import { getAboutMe, getSkills, getSkillCategories } from '@/lib/contentful';
 import EditableProfessionalSkills from './EditableProfessionalSkills';
 import DynamicAvatar from './DynamicAvatar';
 import EditableAbout from './EditableAbout';
@@ -7,7 +7,11 @@ import EditableAbout from './EditableAbout';
 // --- Main Component ---
 
 const About = async () => {
-  const [aboutData, skillsData] = await Promise.all([getAboutMe(), getSkills()]);
+  const [aboutData, skillsData, categoriesData] = await Promise.all([
+    getAboutMe(),
+    getSkills(),
+    getSkillCategories(),
+  ]);
 
   const avatarUrl = (() => {
     const asset = aboutData?.fields.avatar as { fields?: { file?: { url?: string } } } | undefined;
@@ -41,7 +45,7 @@ const About = async () => {
         </div>
 
         <div className="mt-24">
-          <EditableProfessionalSkills skills={skillsData} />
+          <EditableProfessionalSkills skills={skillsData} categories={categoriesData} />
         </div>
       </div>
     </section>
