@@ -49,10 +49,18 @@ export interface EducationSkeleton extends EntrySkeletonType {
   contentTypeId: 'education';
 }
 
+export interface ProfessionalSkillCategorySkeleton extends EntrySkeletonType {
+  fields: {
+    title: EntryFieldTypes.Symbol;
+    order: EntryFieldTypes.Integer;
+  };
+  contentTypeId: 'professionalSkillCategory';
+}
+
 export interface ProfessionalSkillSkeleton extends EntrySkeletonType {
   fields: {
     name: EntryFieldTypes.Symbol;
-    category: EntryFieldTypes.Symbol;
+    category: EntryFieldTypes.EntryLink<ProfessionalSkillCategorySkeleton>;
     strength: EntryFieldTypes.Integer;
     order: EntryFieldTypes.Integer;
   };
@@ -76,5 +84,6 @@ export type AboutMeEntry = Entry<AboutMeSkeleton>;
 export type ContactEntry = Entry<ContactSkeleton>;
 export type WorkHistoryEntry = Entry<WorkHistorySkeleton>;
 export type EducationEntry = Entry<EducationSkeleton>;
+export type ProfessionalSkillCategoryEntry = Entry<ProfessionalSkillCategorySkeleton>;
 export type ProfessionalSkillEntry = Entry<ProfessionalSkillSkeleton>;
 export type ProjectEntry = Entry<ProjectSkeleton>;

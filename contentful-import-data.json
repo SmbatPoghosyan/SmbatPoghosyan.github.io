@@ -21,6 +21,29 @@
           "omitted": false
         }
       ]
+    },
+    {
+      "sys": {
+        "id": "professionalSkillCategory",
+        "type": "ContentType"
+      },
+      "name": "Professional Skill Category",
+      "description": "Category for professional skills",
+      "displayField": "title",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "required": true
+        },
+        {
+          "id": "order",
+          "name": "Order",
+          "type": "Integer",
+          "required": true
+        }
+      ]
     }
   ],
   "assets": [],
@@ -401,393 +424,188 @@
       }
     },
     {
+      "sys": { "id": "category-frontend", "type": "Entry", "contentType": { "sys": { "type": "Link", "linkType": "ContentType", "id": "professionalSkillCategory" } } },
+      "fields": { "title": { "en-US": "Frontend" }, "order": { "en-US": 1 } }
+    },
+    {
+      "sys": { "id": "category-backend", "type": "Entry", "contentType": { "sys": { "type": "Link", "linkType": "ContentType", "id": "professionalSkillCategory" } } },
+      "fields": { "title": { "en-US": "Backend" }, "order": { "en-US": 2 } }
+    },
+    {
+      "sys": { "id": "category-tools", "type": "Entry", "contentType": { "sys": { "type": "Link", "linkType": "ContentType", "id": "professionalSkillCategory" } } },
+      "fields": { "title": { "en-US": "Tools" }, "order": { "en-US": 3 } }
+    },
+    {
+      "sys": { "id": "category-cloud", "type": "Entry", "contentType": { "sys": { "type": "Link", "linkType": "ContentType", "id": "professionalSkillCategory" } } },
+      "fields": { "title": { "en-US": "Cloud" }, "order": { "en-US": 4 } }
+    },
+    {
       "sys": {
         "id": "skill-javascript-es6",
         "type": "Entry",
-        "version": 1,
-        "createdAt": "2025-09-18T00:00:00Z",
-        "updatedAt": "2025-09-18T00:00:00Z",
-        "contentType": {
-          "sys": {
-            "type": "Link",
-            "linkType": "ContentType",
-            "id": "professionalSkill"
-          }
-        }
+        "contentType": { "sys": { "type": "Link", "linkType": "ContentType", "id": "professionalSkill" } }
       },
       "fields": {
-        "name": {
-          "en-US": "JavaScript (ES6+)"
-        },
-        "category": {
-          "en-US": "Frontend"
-        },
-        "strength": {
-          "en-US": 5
-        },
-        "order": {
-          "en-US": 0
-        }
+        "name": { "en-US": "JavaScript (ES6+)" },
+        "category": { "en-US": { "sys": { "type": "Link", "linkType": "Entry", "id": "category-frontend" } } },
+        "strength": { "en-US": 5 },
+        "order": { "en-US": 0 }
       }
     },
     {
       "sys": {
         "id": "skill-typescript",
         "type": "Entry",
-        "version": 1,
-        "createdAt": "2025-09-18T00:00:00Z",
-        "updatedAt": "2025-09-18T00:00:00Z",
-        "contentType": {
-          "sys": {
-            "type": "Link",
-            "linkType": "ContentType",
-            "id": "professionalSkill"
-          }
-        }
+        "contentType": { "sys": { "type": "Link", "linkType": "ContentType", "id": "professionalSkill" } }
       },
       "fields": {
-        "name": {
-          "en-US": "TypeScript"
-        },
-        "category": {
-          "en-US": "Frontend"
-        },
-        "strength": {
-          "en-US": 5
-        },
-        "order": {
-          "en-US": 1
-        }
+        "name": { "en-US": "TypeScript" },
+        "category": { "en-US": { "sys": { "type": "Link", "linkType": "Entry", "id": "category-frontend" } } },
+        "strength": { "en-US": 5 },
+        "order": { "en-US": 1 }
       }
     },
     {
       "sys": {
         "id": "skill-react",
         "type": "Entry",
-        "version": 1,
-        "createdAt": "2025-09-18T00:00:00Z",
-        "updatedAt": "2025-09-18T00:00:00Z",
-        "contentType": {
-          "sys": {
-            "type": "Link",
-            "linkType": "ContentType",
-            "id": "professionalSkill"
-          }
-        }
+        "contentType": { "sys": { "type": "Link", "linkType": "ContentType", "id": "professionalSkill" } }
       },
       "fields": {
-        "name": {
-          "en-US": "React (Next.js)"
-        },
-        "category": {
-          "en-US": "Frontend"
-        },
-        "strength": {
-          "en-US": 5
-        },
-        "order": {
-          "en-US": 2
-        }
+        "name": { "en-US": "React (Next.js)" },
+        "category": { "en-US": { "sys": { "type": "Link", "linkType": "Entry", "id": "category-frontend" } } },
+        "strength": { "en-US": 5 },
+        "order": { "en-US": 2 }
       }
     },
     {
       "sys": {
         "id": "skill-angular",
         "type": "Entry",
-        "version": 1,
-        "createdAt": "2025-09-18T00:00:00Z",
-        "updatedAt": "2025-09-18T00:00:00Z",
-        "contentType": {
-          "sys": {
-            "type": "Link",
-            "linkType": "ContentType",
-            "id": "professionalSkill"
-          }
-        }
+        "contentType": { "sys": { "type": "Link", "linkType": "ContentType", "id": "professionalSkill" } }
       },
       "fields": {
-        "name": {
-          "en-US": "Angular 2+"
-        },
-        "category": {
-          "en-US": "Frontend"
-        },
-        "strength": {
-          "en-US": 4
-        },
-        "order": {
-          "en-US": 3
-        }
+        "name": { "en-US": "Angular 2+" },
+        "category": { "en-US": { "sys": { "type": "Link", "linkType": "Entry", "id": "category-frontend" } } },
+        "strength": { "en-US": 4 },
+        "order": { "en-US": 3 }
       }
     },
     {
       "sys": {
         "id": "skill-html-css",
         "type": "Entry",
-        "version": 1,
-        "createdAt": "2025-09-18T00:00:00Z",
-        "updatedAt": "2025-09-18T00:00:00Z",
-        "contentType": {
-          "sys": {
-            "type": "Link",
-            "linkType": "ContentType",
-            "id": "professionalSkill"
-          }
-        }
+        "contentType": { "sys": { "type": "Link", "linkType": "ContentType", "id": "professionalSkill" } }
       },
       "fields": {
-        "name": {
-          "en-US": "HTML5 & CSS3 (SASS, LESS)"
-        },
-        "category": {
-          "en-US": "Frontend"
-        },
-        "strength": {
-          "en-US": 5
-        },
-        "order": {
-          "en-US": 4
-        }
+        "name": { "en-US": "HTML5 & CSS3 (SASS, LESS)" },
+        "category": { "en-US": { "sys": { "type": "Link", "linkType": "Entry", "id": "category-frontend" } } },
+        "strength": { "en-US": 5 },
+        "order": { "en-US": 4 }
       }
     },
     {
       "sys": {
         "id": "skill-nodejs",
         "type": "Entry",
-        "version": 1,
-        "createdAt": "2025-09-18T00:00:00Z",
-        "updatedAt": "2025-09-18T00:00:00Z",
-        "contentType": {
-          "sys": {
-            "type": "Link",
-            "linkType": "ContentType",
-            "id": "professionalSkill"
-          }
-        }
+        "contentType": { "sys": { "type": "Link", "linkType": "ContentType", "id": "professionalSkill" } }
       },
       "fields": {
-        "name": {
-          "en-US": "Node.js (Express, Nest)"
-        },
-        "category": {
-          "en-US": "Backend"
-        },
-        "strength": {
-          "en-US": 5
-        },
-        "order": {
-          "en-US": 1000
-        }
+        "name": { "en-US": "Node.js (Express, Nest)" },
+        "category": { "en-US": { "sys": { "type": "Link", "linkType": "Entry", "id": "category-backend" } } },
+        "strength": { "en-US": 5 },
+        "order": { "en-US": 0 }
       }
     },
     {
       "sys": {
         "id": "skill-sql",
         "type": "Entry",
-        "version": 1,
-        "createdAt": "2025-09-18T00:00:00Z",
-        "updatedAt": "2025-09-18T00:00:00Z",
-        "contentType": {
-          "sys": {
-            "type": "Link",
-            "linkType": "ContentType",
-            "id": "professionalSkill"
-          }
-        }
+        "contentType": { "sys": { "type": "Link", "linkType": "ContentType", "id": "professionalSkill" } }
       },
       "fields": {
-        "name": {
-          "en-US": "SQL (MySQL, PostgreSQL)"
-        },
-        "category": {
-          "en-US": "Backend"
-        },
-        "strength": {
-          "en-US": 4
-        },
-        "order": {
-          "en-US": 1001
-        }
+        "name": { "en-US": "SQL (MySQL, PostgreSQL)" },
+        "category": { "en-US": { "sys": { "type": "Link", "linkType": "Entry", "id": "category-backend" } } },
+        "strength": { "en-US": 4 },
+        "order": { "en-US": 1 }
       }
     },
     {
       "sys": {
         "id": "skill-nosql",
         "type": "Entry",
-        "version": 1,
-        "createdAt": "2025-09-18T00:00:00Z",
-        "updatedAt": "2025-09-18T00:00:00Z",
-        "contentType": {
-          "sys": {
-            "type": "Link",
-            "linkType": "ContentType",
-            "id": "professionalSkill"
-          }
-        }
+        "contentType": { "sys": { "type": "Link", "linkType": "ContentType", "id": "professionalSkill" } }
       },
       "fields": {
-        "name": {
-          "en-US": "NoSQL (MongoDB, Redis)"
-        },
-        "category": {
-          "en-US": "Backend"
-        },
-        "strength": {
-          "en-US": 4
-        },
-        "order": {
-          "en-US": 1002
-        }
+        "name": { "en-US": "NoSQL (MongoDB, Redis)" },
+        "category": { "en-US": { "sys": { "type": "Link", "linkType": "Entry", "id": "category-backend" } } },
+        "strength": { "en-US": 4 },
+        "order": { "en-US": 2 }
       }
     },
     {
       "sys": {
         "id": "skill-rest-graphql",
         "type": "Entry",
-        "version": 1,
-        "createdAt": "2025-09-18T00:00:00Z",
-        "updatedAt": "2025-09-18T00:00:00Z",
-        "contentType": {
-          "sys": {
-            "type": "Link",
-            "linkType": "ContentType",
-            "id": "professionalSkill"
-          }
-        }
+        "contentType": { "sys": { "type": "Link", "linkType": "ContentType", "id": "professionalSkill" } }
       },
       "fields": {
-        "name": {
-          "en-US": "RESTful & GraphQL APIs"
-        },
-        "category": {
-          "en-US": "Backend"
-        },
-        "strength": {
-          "en-US": 5
-        },
-        "order": {
-          "en-US": 1003
-        }
+        "name": { "en-US": "RESTful & GraphQL APIs" },
+        "category": { "en-US": { "sys": { "type": "Link", "linkType": "Entry", "id": "category-backend" } } },
+        "strength": { "en-US": 5 },
+        "order": { "en-US": 3 }
       }
     },
     {
       "sys": {
         "id": "skill-git",
         "type": "Entry",
-        "version": 1,
-        "createdAt": "2025-09-18T00:00:00Z",
-        "updatedAt": "2025-09-18T00:00:00Z",
-        "contentType": {
-          "sys": {
-            "type": "Link",
-            "linkType": "ContentType",
-            "id": "professionalSkill"
-          }
-        }
+        "contentType": { "sys": { "type": "Link", "linkType": "ContentType", "id": "professionalSkill" } }
       },
       "fields": {
-        "name": {
-          "en-US": "Git & GitHub/Bitbucket"
-        },
-        "category": {
-          "en-US": "Tools"
-        },
-        "strength": {
-          "en-US": 5
-        },
-        "order": {
-          "en-US": 2000
-        }
+        "name": { "en-US": "Git & GitHub/Bitbucket" },
+        "category": { "en-US": { "sys": { "type": "Link", "linkType": "Entry", "id": "category-tools" } } },
+        "strength": { "en-US": 5 },
+        "order": { "en-US": 0 }
       }
     },
     {
       "sys": {
         "id": "skill-aws",
         "type": "Entry",
-        "version": 1,
-        "createdAt": "2025-09-18T00:00:00Z",
-        "updatedAt": "2025-09-18T00:00:00Z",
-        "contentType": {
-          "sys": {
-            "type": "Link",
-            "linkType": "ContentType",
-            "id": "professionalSkill"
-          }
-        }
+        "contentType": { "sys": { "type": "Link", "linkType": "ContentType", "id": "professionalSkill" } }
       },
       "fields": {
-        "name": {
-          "en-US": "AWS (S3, EC2, Lambda, RDS)"
-        },
-        "category": {
-          "en-US": "Cloud"
-        },
-        "strength": {
-          "en-US": 3
-        },
-        "order": {
-          "en-US": 3000
-        }
+        "name": { "en-US": "AWS (S3, EC2, Lambda, RDS)" },
+        "category": { "en-US": { "sys": { "type": "Link", "linkType": "Entry", "id": "category-cloud" } } },
+        "strength": { "en-US": 3 },
+        "order": { "en-US": 0 }
       }
     },
     {
       "sys": {
         "id": "skill-firebase",
         "type": "Entry",
-        "version": 1,
-        "createdAt": "2025-09-18T00:00:00Z",
-        "updatedAt": "2025-09-18T00:00:00Z",
-        "contentType": {
-          "sys": {
-            "type": "Link",
-            "linkType": "ContentType",
-            "id": "professionalSkill"
-          }
-        }
+        "contentType": { "sys": { "type": "Link", "linkType": "ContentType", "id": "professionalSkill" } }
       },
       "fields": {
-        "name": {
-          "en-US": "Firebase"
-        },
-        "category": {
-          "en-US": "Cloud"
-        },
-        "strength": {
-          "en-US": 3
-        },
-        "order": {
-          "en-US": 3001
-        }
+        "name": { "en-US": "Firebase" },
+        "category": { "en-US": { "sys": { "type": "Link", "linkType": "Entry", "id": "category-cloud" } } },
+        "strength": { "en-US": 3 },
+        "order": { "en-US": 1 }
       }
     },
     {
       "sys": {
         "id": "skill-jira",
         "type": "Entry",
-        "version": 1,
-        "createdAt": "2025-09-18T00:00:00Z",
-        "updatedAt": "2025-09-18T00:00:00Z",
-        "contentType": {
-          "sys": {
-            "type": "Link",
-            "linkType": "ContentType",
-            "id": "professionalSkill"
-          }
-        }
+        "contentType": { "sys": { "type": "Link", "linkType": "ContentType", "id": "professionalSkill" } }
       },
       "fields": {
-        "name": {
-          "en-US": "Jira, Trello, Azure Boards"
-        },
-        "category": {
-          "en-US": "Tools"
-        },
-        "strength": {
-          "en-US": 5
-        },
-        "order": {
-          "en-US": 2001
-        }
+        "name": { "en-US": "Jira, Trello, Azure Boards" },
+        "category": { "en-US": { "sys": { "type": "Link", "linkType": "Entry", "id": "category-tools" } } },
+        "strength": { "en-US": 5 },
+        "order": { "en-US": 1 }
       }
     }
   ]
