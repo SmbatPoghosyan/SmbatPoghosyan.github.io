@@ -1,34 +1,10 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Project Mono-repo
 
-## Getting Started
+This repository contains the frontend and backend for the application.
 
-First, run the development server:
+## Structure
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- `/frontend`: Contains the Next.js frontend application.
+- `/backend`: Contains the Node.js/Express backend service.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Contentful Schema Notes
-
-- `professionalSkill` entries now include an `order` (Integer) field. The UI uses this value to keep category and skill drag-and-drop ordering stable, so update the content type in Contentful before importing the refreshed sample data.
+Please refer to the `README.md` file in each directory for instructions on how to run the respective applications.
